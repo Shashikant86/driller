@@ -9,7 +9,7 @@ URL = ARGV[0]
 
 Anemone.crawl(URL) do |anemone|
 
-anemone.depth_limit = 2
+anemone.depth_limit = ARGV[1]
 
 anemone.focus_crawl do |page|
   page.links.select { |url| url.starts_with? URL }
@@ -52,8 +52,8 @@ def print_usage
   <command-name> can be one of
     help
       prints more detailed help information.
-    url
-      crawl the url and reports error pages and slow paged.
+    url and depth
+      crawl the url and reports error pages and slow paged upto depth level specified 
     version
       prints the gem version
 
