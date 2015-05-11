@@ -6,10 +6,11 @@ require "rubygems"
 require "anemone"
 
 URL = ARGV[0]
+depth = ARGV[1]
 
 Anemone.crawl(URL) do |anemone|
 
-anemone.depth_limit = ARGV[1]
+anemone.depth_limit = depth.to_i
 
 anemone.focus_crawl do |page|
   page.links.select { |url| url.starts_with? URL }
@@ -41,56 +42,4 @@ anemone.on_every_page do |page|
     file.puts page.url
   end
 end
-end
-
-
-def print_usage
-  puts <<EOF
-
-  Usage: driller <command-name> [parameters] [options]
-
-  <command-name> can be one of
-    help
-      prints more detailed help information.
-    url and depth
-      crawl the url and reports error pages and slow paged upto depth level specified 
-    version
-      prints the gem version
-
-  <options> can be
-     -v, --verbose   Turns on verbose logging
-EOF
-end
-
-def print_help
-  puts <<EOF
-
-  Usage: driller <command-name>
-
-  <command-name> can be one of
-    help
-    version
-
-    Commands:
-      help : prints more detailed help information.
-
-      version : prints the gem version
-
-  <Options>
-      -v, --verbose  Turns on verbose logging
-EOF
-end
-
-
-if (ARGV.length == 0)
-  print_usage
-else
-	cmd = ARGV.shift
-	if cmd == "help"
-  		print_help
-	elsif cmd == "version"
-		puts Driller::VERSION
-  	else
-  		print_usage
-	end
 end

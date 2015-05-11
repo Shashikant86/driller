@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Shashikant86"]
   spec.email         = ["shashikant.jagtap@aol.co.uk"]
   spec.summary       = %q{Drill your website for error and slow pages}
-  spec.description   = %q{Drill your website for error and slow pages.}
-  spec.homepage      = ""
+  spec.description   = %q{Driller is a command line Ruby based web crawler based on Anemone. Driller can crawl website and reports error pages which are not 200 or 301.}
+  spec.homepage      = "https://github.com/Shashikant86/driller"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
