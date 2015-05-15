@@ -10,7 +10,7 @@ require "anemone"
 
 class Main
     attr_accessor :valid, :invalid, :slow, :extremely_slow
-    
+
     def initialize(webpage, depth, proxy_host, proxy_port)
         @webpage    = webpage
         @depth      = depth
@@ -33,7 +33,7 @@ class Main
                 anemone.proxy_host = @proxy_host
                 anemone.proxy_port = @proxy_port
             end
-            
+
             anemone.depth_limit = @depth.to_i
             puts "============= Driller is now checking your website links. If any of the link returned non 200, it will be displayed here========="
             anemone.focus_crawl do |page|
@@ -57,15 +57,15 @@ class Main
                     # -------------------
                     # We only check response time
                     # for pages which are 200
-                    # because there is no point of 
+                    # because there is no point of
                     # optimizing error pages.
-                    
-                    if page.response_time > 10000
+
+                    if page.response_time > 5000
                         result[:slow].push(pageObject)
 
                         puts "=======Slow Page======\n"
                         puts "Time: #{page.response_time} - #{page.url}"
-                    elsif page.response_time > 5000
+                    elsif page.response_time > 10000
                         result[:extremely_slow].push(pageObject)
 
                         puts "=======Very Slow Page======\n"
@@ -78,7 +78,7 @@ class Main
 
                     puts "======= NON-200 Page ======\n"
                     puts "#{page.code} Response from : #{page.url}"
-                    puts 
+                    puts
 
                 end
 

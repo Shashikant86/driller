@@ -5,11 +5,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "driller"
-  spec.version       = "0.1.2"
+  spec.version       = "0.1.3"
   spec.authors       = ["Shashikant86", "Qambar"]
   spec.email         = ["shashikant.jagtap@aol.co.uk"]
   spec.summary       = %q{Drill your website for error and slow pages}
-  spec.description   = %q{Driller is a command line Ruby based web crawler based on Anemone. Driller can crawl website and reports error pages which are not 200 or 301.}
+  spec.description   = %q{Driller is a command line Ruby based web crawler based on Anemone. Driller can crawl website and reports error pages and slow pages and generates HTML reports.}
   spec.homepage      = "https://github.com/Shashikant86/driller"
   spec.license       = "MIT"
   spec.files         = `git ls-files -z`.split("\x0")
