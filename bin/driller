@@ -4,5 +4,18 @@ require_relative '../lib/driller/main'
 webpage = ARGV[0]
 depth   = ARGV[1]
 
-m = Main.new(webpage, depth)
+proxy_host = ARGV[2]
+proxy_port = ARGV[3]
+
+if proxy_port.nil?
+    proxy_port = 80
+end
+
+if webpage.nil? || depth.nil? 
+    puts "Error: Invalid number of arguments supplied."
+    abort("Usage: driller <webpage> <depth>")
+end
+
+
+m = Main.new(webpage, depth, proxy_host, proxy_port)
 m.execute

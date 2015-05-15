@@ -1,20 +1,15 @@
 class File_Handler
-    def initialize(reportName)
-        begin 
-            @file = File.new(reportName + '.html', 'w')
-        rescue
-            puts "Please check your directory permissions."
-        end
+    def initialize(filename, data)
+        write(filename, data)
     end 
 
-    def generateReport(str)
-        file = File.open(@reportName, 'a+')
+    def write(filename, data)
         begin 
-            file.puts str
-            file.write("\n")
+            file = File.new(filename + '.html', 'w')
+            file.puts data
+            file.close
         rescue
-            puts "unable to write file" 
+            puts "Unable to write to file, please check your permissions" 
         end
-        file.close
     end
 end
