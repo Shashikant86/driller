@@ -24,11 +24,11 @@ file = File.new('extremely_slow_pages.html', 'w')
 anemone.on_every_page do |page|
 
   if page.code != 200
-    puts "=======Not 200 OK======\n"
+    puts "=======This page is broken ======\n"
     puts page.url
     puts "\n returned response code of\n"
     puts page.code
-    puts "\n"
+    puts "=======Plese fix it ======\n"
     file = File.open('broken.html', 'a+')
     file.puts page.url
     file.write("\n")
