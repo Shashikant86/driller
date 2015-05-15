@@ -30,14 +30,16 @@ Or install it yourself as:
 
   * URL of the page to be crawled
   * Depth of the crawling
+  * Proxy Hostname (optional)   [default: nil]
+  * Proxy Port (optional)       [default: 80]
 
-
+          $ driller <webpage> <depth> [<proxy_host>] [<proxy_port>]
           $ driller http://www.example.com 2
+          $ driller http://www.example.com 2 'www-proxy.domain.co.uk' 80
 
   If you have installed it from bundle the
 
            $ bundle exec driller  http://www.example.com 2
-
 
  This will crawl website upto level 2. You can increase depth as per your need. This will create three HTML files valid_urls.html which are 200 response. broken.html wich are not 200. slow_pages.html which are retuned reaponse time > 5000
 
