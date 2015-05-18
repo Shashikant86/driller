@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require_relative "version"
 require_relative "uri_helper"
 require_relative "file_handler"
 require_relative "html_report"
