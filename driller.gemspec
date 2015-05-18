@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "driller"
-  spec.version       = "0.1.3"
+  spec.version       = "0.1.4"
   spec.authors       = ["Shashikant86", "Qambar"]
   spec.email         = ["shashikant.jagtap@aol.co.uk"]
   spec.summary       = %q{Drill your website for error and slow pages}
